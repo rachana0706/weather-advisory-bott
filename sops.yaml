@@ -1,0 +1,136 @@
+- id: SOP-001
+  category: outdoor_exercise
+  severity: 3
+  priority: 80
+  conditions:
+    activities: [cycling, two_wheeler, biking, running, jogging, hiking]
+    weather:
+      wind_speed_10m:
+        operator: ">"
+        value: 40
+  guidance: "Flag high wind speeds as a severe safety risk, not just a comfort issue, and advise avoiding these activities."
+
+- id: SOP-002
+  category: travel
+  severity: 2
+  priority: 50
+  conditions:
+    activities: [travel, driving, road_trip, commute]
+    weather:
+      precipitation_probability:
+        operator: ">="
+        value: 70
+  guidance: "Warn of possible travel delays due to high precipitation probability and recommend checking for local alerts before departure."
+
+- id: SOP-003
+  category: general
+  severity: 4
+  priority: 100
+  conditions:
+    activities: [any]
+    weather:
+      precipitation:
+        operator: ">"
+        value: 50
+  guidance: "Active heavy rainfall system detected. Treat as high severity regardless of the planned activity and strongly advise staying indoors."
+
+- id: SOP-004
+  category: outdoor_exercise
+  severity: 3
+  priority: 70
+  conditions:
+    activities: [any]
+    weather:
+      uv_index:
+        operator: ">="
+        value: 8
+  guidance: "UV index is critically high. Advise against unprotected outdoor exposure and recommend sunscreen plus rescheduling to early morning or evening."
+
+- id: SOP-005
+  category: general
+  severity: 2
+  priority: 60
+  conditions:
+    activities: [any]
+    weather:
+      temperature_2m:
+        operator: ">"
+        value: 35
+  guidance: "High temperatures observed. Recommend staying hydrated, avoiding strenuous activity, and staying in shaded or air-conditioned areas."
+
+- id: SOP-006
+  category: vulnerable_groups
+  severity: 3
+  priority: 85
+  conditions:
+    activities: [any]
+    vulnerable_groups: [elderly, children, pets]
+    weather:
+      temperature_2m:
+        operator: ">"
+        value: 32
+  guidance: "Elevated temperatures present a significant risk to vulnerable groups. Strongly advise keeping elderly, children, and pets indoors and cool."
+
+- id: SOP-007
+  category: vulnerable_groups
+  severity: 3
+  priority: 85
+  conditions:
+    activities: [any]
+    vulnerable_groups: [elderly, children, pets]
+    weather:
+      temperature_2m:
+        operator: "<"
+        value: 5
+  guidance: "Freezing temperatures pose a severe risk to vulnerable groups. Advise limiting outdoor time and ensuring proper winter clothing."
+
+- id: SOP-008
+  category: outdoor_exercise
+  severity: 2
+  priority: 40
+  conditions:
+    activities: [any]
+    weather:
+      precipitation:
+        operator: ">"
+        value: 5
+  guidance: "Moderate rainfall detected. Advise bringing rain gear and being cautious of slippery surfaces."
+
+- id: SOP-009
+  category: general
+  severity: 1
+  priority: 20
+  conditions:
+    activities: [any]
+    weather:
+      wind_speed_10m:
+        operator: ">"
+        value: 20
+  guidance: "Breezy conditions present. Note that it might be slightly uncomfortable but generally safe for most activities."
+
+- id: SOP-010
+  category: leisure
+  severity: 1
+  priority: 90
+  conditions:
+    activities: [picnic, park, outdoor_gathering]
+    weather:
+      precipitation_probability:
+        operator: "<"
+        value: 20
+      temperature_2m:
+        operator: "between"
+        value: [18, 28]
+      wind_speed_10m:
+        operator: "<"
+        value: 20
+  guidance: "Conditions are highly favorable for a picnic or outdoor gathering. Encourage the activity, citing the pleasant and safe weather."
+
+- id: SOP-011
+  category: leisure
+  severity: 1
+  priority: 10
+  conditions:
+    activities: [picnic, outdoor_gathering, park]
+    fallback: true
+  guidance: "For picnic and relaxed outdoor gathering questions, use the available forecast conditions to describe whether the weather is suitable. If a specific weather safety policy applies, follow that policy instead."

@@ -1,4 +1,5 @@
-
+import os
+from langchain_openai import ChatOpenAI
 import json
 from typing import Dict, Any, Optional
 
@@ -18,6 +19,11 @@ class ExtractionSchema(BaseModel):
     vulnerable_group: Optional[str] = Field(default=None, description="Any vulnerable group mentioned (e.g., elderly, children, pets). Leave null if none.")
 
 def get_llm():
+    if os.getenv("OPENAI_API_KEY"):
+        return ChatOpenAI(
+            model="gpt-5.6-luna",
+            temperature=0,
+        )
     return ChatOllama(
         model="llama2:latest",
         temperature=0,
